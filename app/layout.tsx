@@ -1,17 +1,15 @@
-import type { Metadata } from 'next';
-import './globals.css';
+'use client';
+import { usePathname } from 'next/navigation';
+import './styles/globals.css';
 import Header from './components/Header';
-
-export const metadata: Metadata = {
-	title: 'Star Wars Planets',
-	description: 'Explore Star Wars Universe planets',
-};
 
 export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const isHomePage = usePathname() === '/';
+
 	return (
 		<html lang='en'>
 			<head>
@@ -23,7 +21,7 @@ export default function RootLayout({
 			</head>
 			<body className=''>
 				<div className='container mx-auto px-4'>
-					<Header />
+					{!isHomePage && <Header />}
 					{children}
 				</div>
 			</body>
