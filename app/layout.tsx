@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Header from './components/Header';
 
 export const metadata: Metadata = {
 	title: 'Star Wars Planets',
@@ -20,7 +21,12 @@ export default function RootLayout({
 					type='image/svg+xml'
 				/>
 			</head>
-			<body className=''>{children}</body>
+			<body className=''>
+				<div className='container mx-auto px-4'>
+					<Header />
+					{children}
+				</div>
+			</body>
 		</html>
 	);
 }
