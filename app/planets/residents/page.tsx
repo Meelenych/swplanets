@@ -1,7 +1,11 @@
 import React from 'react';
+// import { fetchResidents } from '../../../services/api';
+// import ResidentList from '../../../components/ResidentList';
 
-const Residents = () => {
-	return <div>Residents list</div>;
+const ResidentsPage = async ({ params }: { params: { id: string } }) => {
+	// const residents = await fetchResidents(params.id);
+
+	return <div>{/* <ResidentList residents={residents} /> */}</div>;
 };
 
-export default Residents;
+export default ResidentsPage;

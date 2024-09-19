@@ -1,7 +1,15 @@
+'use client';
 import React from 'react';
+import PlanetList from '../components/PlanetList';
+import SearchInput from '../components/SearchInput';
 
-const Planets = () => {
-	return <div>Planets</div>;
+const PlanetsPage = () => {
+	return (
+		<div>
+			<SearchInput />
+			<PlanetList />
+		</div>
+	);
 };
 
-export default Planets;
+export default PlanetsPage;
