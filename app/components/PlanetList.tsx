@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 
 const PlanetList = () => {
-	const { planets, fetchPlanets } = usePlanetStore();
+	const { planets, fetchAllPlanets } = usePlanetStore();
 
 	useEffect(() => {
-		fetchPlanets();
-	}, [fetchPlanets]);
+		fetchAllPlanets();
+	}, [fetchAllPlanets]);
 
 	return (
 		<div>
-			<ol className='list-decimal'>
+			<ol className='list-decimal grid grid-cols-1 md:grid-cols-3'>
 				{planets?.map(planet => (
 					<li key={uuidv4()}>
 						<Link

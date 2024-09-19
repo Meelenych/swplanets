@@ -1,23 +1,25 @@
 
 import {create} from 'zustand';
-import {fetchPlanets} from '../../services/api';
+import {fetchAllPlanets} from '../../services/api';
 import {Planet} from '../types/types';
 
 interface PlanetState {
   planets: Planet[];
-  fetchPlanets: () => Promise<void>;
+  fetchAllPlanets: () => Promise<void>;
 }
 
 const usePlanetStore = create<PlanetState>((set) => ({
   planets: [],
-  fetchPlanets: async () => {
+  fetchAllPlanets: async () => {
     try {
-      const data = await fetchPlanets();
+      const data = await fetchAllPlanets();
       set({planets: data});
+      console.log('store', data)
     } catch (error) {
       console.error('Error fetching planets:', error);
     }
   },
+
 }));
 
 export default usePlanetStore;

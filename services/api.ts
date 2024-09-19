@@ -1,14 +1,24 @@
 import axios from "axios";
+import {apiUrl} from "@/app/utils/constants";
+import {Planet} from "@/app/types/types";
+import {PlanetsApiResponse} from '@/app/types/types'
 
-const apiUrl = "https://swapi.dev/api/planets";
 
-export const fetchPlanets = async () => {
+export const fetchAllPlanets = async (): Promise<Planet[]> => {
+  let allPlanets: Planet[] = [];
+  let nextPageUrl: string | null = apiUrl;
+
   try {
-    const response = await axios.get(apiUrl)
-    console.log('planets', response.data.results)
-    return response.data.results;
+    while (nextPageUrl) {
+      const response: PlanetsApiResponse = await axios.get(nextPageUrl);
+      const {results, next}: {results: Planet[]; next: string | null} = response.data;
+
+      allPlanets = [...allPlanets, ...results];
+      nextPageUrl = next;
+    }
   } catch (error) {
-    console.log('Error fetching all planets', error);
-    throw error;
+    console.error('Error fetching planets:', error);
   }
-}
+
+  return allPlanets;
+};

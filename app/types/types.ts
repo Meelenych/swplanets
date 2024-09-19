@@ -14,3 +14,9 @@ export interface Planet {
   "edited": string,
   "url": string
 }
+
+export interface PlanetsApiResponse {
+  data: {results: Planet[]; next: string | null;};
+}
+
+export interface Resident { }
