@@ -2,27 +2,21 @@ import React from 'react';
 import { Planet } from '../types/types';
 
 const PlanetDetail = ({ planet }: { planet: Planet }) => {
-	console.log('planet from details page', planet);
 	return (
-		<div>
-			<li>
-				<ul>
-					<li>
-						<p>name: {planet.name}</p>
-						<p>rotation_period: {planet.rotation_period}</p>
-						<p>orbital_period: {planet.orbital_period}</p>
-						<p>diameter: {planet.diameter}</p>
-						<p>climate: {planet.climate}</p>
-						<p>gravity: {planet.gravity} </p>
-						<p>terrain: {planet.terrain}</p>
-						<p>surface_water: {planet.surface_water}</p>
-						<p>population: {planet.population}</p>
-						<p>residents: {planet.residents}</p>
-						<p>films:{planet.films}</p>
-					</li>
-				</ul>
-			</li>
-		</div>
+		<>
+			<ul>
+				<li>Planet name: {planet.name}</li>
+				<li>Rotation period: {planet.rotation_period}</li>
+				<li>Orbital period: {planet.orbital_period}</li>
+				<li>Diameter: {planet.diameter}</li>
+				<li>Climate: {planet.climate}</li>
+				<li>Gravity: {planet.gravity} </li>
+				<li>Terrain: {planet.terrain}</li>
+				<li>Surface water: {planet.surface_water}</li>
+				<li>Population: {planet.population}</li>
+				<li>Residents: {planet.residents}</li>
+			</ul>
+		</>
 	);
 };
 

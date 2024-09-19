@@ -10,14 +10,17 @@ const PlanetList = () => {
 	useEffect(() => {
 		fetchPlanets();
 	}, [fetchPlanets]);
-	console.log(planets);
 
 	return (
 		<div>
-			<ol>
+			<ol className='list-decimal'>
 				{planets?.map(planet => (
 					<li key={uuidv4()}>
-						<Link href={`planets/${planet.name}`}>{planet.name}</Link>
+						<Link
+							className='link-info'
+							href={`planets/${planet.name}`}>
+							{planet.name}
+						</Link>
 					</li>
 				))}
 			</ol>

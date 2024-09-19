@@ -12,7 +12,6 @@ const PlanetDetailPage = ({ params }: { params: { id: string } }) => {
 		if (planets.length) {
 			const planetId = params.id;
 			const foundPlanet = planets.find(planet => planet.name === planetId);
-			console.log('foundPlanet', foundPlanet);
 			setCurrentPlanet(foundPlanet || null);
 		}
 	}, [planets, params.id]);
