@@ -37,7 +37,7 @@ const ResidentDetailPage = ({
 	}, [currentPlanet, params.residentId, residents]);
 
 	return (
-		<div>
+		<div className='h-lvh flex flex-col items-center'>
 			{loading ? (
 				<p>Loading resident...</p>
 			) : currentResident ? (

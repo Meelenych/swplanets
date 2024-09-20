@@ -29,7 +29,7 @@ const ResidentsPage = ({ params }: { params: { id: string } }) => {
 	const allResidents = currentPlanet ? residents[currentPlanet.name] || [] : [];
 
 	return (
-		<div>
+		<div className='h-lvh flex flex-col items-center'>
 			<h2>Residents of {currentPlanet?.name}:</h2>
 			{loading ? (
 				<p>Loading residents...</p>

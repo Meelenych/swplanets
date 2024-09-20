@@ -19,7 +19,7 @@ const PlanetDetailPage = ({ params }: { params: { id: string } }) => {
 	}, [planets, params.id]);
 
 	return (
-		<div>
+		<div className='h-lvh flex justify-center'>
 			{currentPlanet ? (
 				<PlanetDetail planet={currentPlanet} />
 			) : (
