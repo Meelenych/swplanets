@@ -19,7 +19,7 @@ export default function RootLayout({
 					type='image/svg+xml'
 				/>
 			</head>
-			<body className=''>
+			<body className='min-h-screen'>
 				<div className='container mx-auto p-4'>
 					{!isHomePage && <Header />}
 					{children}

@@ -1,8 +1,20 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import Falcon from '../public/assets/icons/Falcon.svg';
+import usePlanetStore from './store/planetsStore';
+import { useEffect } from 'react';
 
 export default function Home() {
+	const { fetchAllPlanets } = usePlanetStore();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			await fetchAllPlanets();
+		};
+
+		fetchData();
+	}, [fetchAllPlanets]);
 	return (
 		<main className='flex flex-grow h-dvh flex-col items-center justify-start p-4'>
 			<h1 className='text-2xl mt-32'>Welcome to the Star Wars Planets App</h1>

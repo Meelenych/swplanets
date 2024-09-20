@@ -38,5 +38,3 @@ export interface Resident {
   "edited": string,
   "url": string,
 }
-
-export interface Resident { }

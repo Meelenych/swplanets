@@ -3,14 +3,13 @@ import React, { useEffect, useState } from 'react';
 import usePlanetStore from '../../../../store/planetsStore';
 import { Planet, Resident } from '../../../../types/types';
 import ResidentDetail from '../../../../components/ResidentDetail';
-import { fetchResidents } from '../../../../../services/residentsApi';
 
 const ResidentDetailPage = ({
 	params,
 }: {
 	params: { id: string; residentId: string };
 }) => {
-	const { planets } = usePlanetStore();
+	const { planets, residents } = usePlanetStore();
 	const [currentPlanet, setCurrentPlanet] = useState<Planet | null>(null);
 	const [currentResident, setCurrentResident] = useState<Resident | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
@@ -24,27 +23,18 @@ const ResidentDetailPage = ({
 	}, [planets, params.id]);
 
 	useEffect(() => {
-		const loadResidents = async () => {
-			if (currentPlanet && currentPlanet.residents.length) {
-				try {
-					const residentsData = await fetchResidents(currentPlanet);
-					const residentName = decodeURIComponent(params.residentId);
-					const foundResident = residentsData.find(
-						(resident: Resident) => resident.name === residentName,
-					);
-					setCurrentResident(foundResident || null);
-				} catch (error) {
-					console.error('Error fetching residents:', error);
-				}
-				setLoading(false);
-			} else {
-				setLoading(false);
-			}
-		};
 		if (currentPlanet) {
-			loadResidents();
+			const residentName = decodeURIComponent(params.residentId);
+			const allResidents = residents[currentPlanet.name] || [];
+			const foundResident = allResidents.find(
+				(resident: Resident) => resident.name === residentName,
+			);
+			setCurrentResident(foundResident || null);
+			setLoading(false);
+		} else {
+			setLoading(false);
 		}
-	}, [currentPlanet, params.residentId]);
+	}, [currentPlanet, params.residentId, residents]);
 
 	return (
 		<div>

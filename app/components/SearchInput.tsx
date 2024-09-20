@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchInput = ({ onSearch }: { onSearch: any }) => {
 	return (
-		<div>
+		<div className='my-4'>
 			<input
 				type='text'
 				placeholder='Enter planet name'
