@@ -20,7 +20,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className=''>
-				<div className='container mx-auto px-4'>
+				<div className='container mx-auto p-4'>
 					{!isHomePage && <Header />}
 					{children}
 				</div>

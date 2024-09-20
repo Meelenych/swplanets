@@ -10,8 +10,10 @@ const PlanetDetailPage = ({ params }: { params: { id: string } }) => {
 
 	useEffect(() => {
 		if (planets.length) {
-			const planetId = params.id;
-			const foundPlanet = planets.find(planet => planet.name === planetId);
+			const planetName = decodeURIComponent(params.id);
+			const foundPlanet = planets.find(
+				planet => planet.name.toLowerCase() === planetName.toLowerCase(),
+			);
 			setCurrentPlanet(foundPlanet || null);
 		}
 	}, [planets, params.id]);

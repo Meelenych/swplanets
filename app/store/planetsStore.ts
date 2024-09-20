@@ -11,7 +11,7 @@ interface PlanetStore {
 const usePlanetStore = create<PlanetStore>((set) => ({
   planets: [],
   fetchAllPlanets: async () => {
-    if (usePlanetStore.getState().planets.length === 0) { // Check if planets are already loaded
+    if (usePlanetStore.getState().planets.length === 0) {
       try {
         let allPlanets: Planet[] = [];
         let nextPageUrl: string | null = 'https://swapi.dev/api/planets';
