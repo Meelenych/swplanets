@@ -1,29 +1,9 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+import React from 'react';
 import { Planet } from '../types/types';
-import { fetchResidents } from '../../services/residentsApi';
+import Link from 'next/link';
 
 const PlanetDetail = ({ planet }: { planet: Planet }) => {
-	const [allResidents, setAllResidents] = useState<any[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
-
-	useEffect(() => {
-		const loadResidents = async () => {
-			if (planet.residents.length) {
-				try {
-					const residentsData = await fetchResidents(planet);
-					setAllResidents(residentsData);
-				} catch (error) {
-					console.error('Error fetching residents:', error);
-				}
-				setLoading(false);
-			} else {
-				setLoading(false);
-			}
-		};
-
-		loadResidents();
-	}, [planet]);
-
 	return (
 		<>
 			<ul>
@@ -37,18 +17,8 @@ const PlanetDetail = ({ planet }: { planet: Planet }) => {
 				<li>Surface water: {planet.surface_water}</li>
 				<li>Population: {planet.population}</li>
 				<li>
-					Residents:
-					{loading ? (
-						<p>Loading residents...</p>
-					) : allResidents.length > 0 ? (
-						<ul>
-							{allResidents.map(resident => (
-								<li key={resident.name}>{resident.name}</li>
-							))}
-						</ul>
-					) : (
-						<p>No residents found</p>
-					)}
+					Residents:{' '}
+					<Link href={`/planets/${planet.name}/residents/`}>Show all</Link>
 				</li>
 			</ul>
 		</>
