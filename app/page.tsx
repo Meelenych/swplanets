@@ -17,8 +17,10 @@ export default function Home() {
 	}, [fetchAllPlanets]);
 	return (
 		<main className='flex flex-grow h-dvh flex-col items-center justify-start p-4'>
-			<h1 className='text-2xl mt-32'>Welcome to the Star Wars Planets App</h1>
-			<p className='text-sm mt-4'>
+			<h1 className='text-2xl mt-32 text-slate-200'>
+				Welcome to the Star Wars Planets App
+			</h1>
+			<p className='text-sm mt-4 text-slate-200'>
 				This is a Next.js application that uses TypeScript, Tailwind CSS, and
 				React.js to display a list of Star Wars planets.
 			</p>

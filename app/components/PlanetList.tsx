@@ -31,7 +31,7 @@ const PlanetList = ({ searchTerm }: { searchTerm: string }) => {
 			{loading ? (
 				<p>Loading planets...</p>
 			) : filteredPlanets.length > 0 ? (
-				<ol className='list-decimal grid grid-cols-1 md:grid-cols-3 ml-8'>
+				<ol className='list-decimal grid grid-cols-2 md:grid-cols-3 ml-8'>
 					{filteredPlanets.map(planet => (
 						<li key={uuidv4()}>
 							<Link href={`planets/${planet.name}`}>{planet.name}</Link>

@@ -17,7 +17,7 @@ const Header = () => {
 	return (
 		<header>
 			<div className='container flex justify-center'>
-				<div className='breadcrumbs text-sm'>
+				<div className='breadcrumbs text-xs sm:text-lg'>
 					<ul>
 						{breadcrumbs.map((breadcrumb, index) => (
 							<li key={breadcrumb.href}>
