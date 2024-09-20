@@ -19,7 +19,7 @@ export default function RootLayout({
 					type='image/svg+xml'
 				/>
 			</head>
-			<body className='flex-grow min-h-0 overflow-y-auto flex flex-col items-center justify-center'>
+			<body className='flex-grow overflow-y-auto flex flex-col items-center justify-center'>
 				<div className='container mx-auto p-4 overflow-y-auto'>
 					{!isHomePage && <Header />}
 					{children}
