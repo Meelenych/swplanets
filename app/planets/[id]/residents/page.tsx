@@ -25,7 +25,7 @@ const ResidentsPage = ({ params }: { params: { id: string } }) => {
 					console.error('Error fetching residents:', error);
 				}
 			}
-			setLoading(false); // Always set loading to false after the attempt
+			setLoading(false);
 		};
 
 		loadResidents();

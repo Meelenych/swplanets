@@ -25,3 +25,12 @@ body {
     text-wrap: balance;
   }
 }
+
+a {
+  color: rgb(50, 184, 246);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(46, 109, 137);
+}
