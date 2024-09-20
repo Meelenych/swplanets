@@ -1,11 +1,12 @@
 'use client';
 import Link from 'next/link';
+import { Resident } from '../types/types';
 
 const ResidentList = ({
 	residents,
 	planetName,
 }: {
-	residents: any[];
+	residents: Resident[];
 	planetName: string | undefined;
 }) => {
 	return (

@@ -1,6 +1,10 @@
 import React from 'react';
 
-const SearchInput = ({ onSearch }: { onSearch: any }) => {
+const SearchInput = ({
+	onSearch,
+}: {
+	onSearch: (searchTerm: string) => void;
+}) => {
 	return (
 		<div className='my-4'>
 			<input
